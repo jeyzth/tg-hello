@@ -1,2 +1,8 @@
 -i http://tg.gy/current
 tg.devtools
+nose
+TurboGears2 >= 2.2.2
+Genshi
+Jinja2
+tgming
+tw2.forms
