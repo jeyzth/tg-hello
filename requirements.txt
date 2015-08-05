@@ -1,7 +1,5 @@
--i http://tg.gy/current
-tg.devtools
+TurboGears2 == 2.2.2
 nose
-TurboGears2 >= 2.2.2
 Genshi
 Jinja2
 tgming
