@@ -29,7 +29,6 @@ tghello/model/__init__.py
 tghello/model/auth.py
 tghello/model/session.py
 tghello/model/task1.py
-tghello/public/cell10x10.gif
 tghello/public/favicon.ico
 tghello/public/css/bootstrap-responsive.css
 tghello/public/css/bootstrap-responsive.min.css
