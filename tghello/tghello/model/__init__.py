@@ -13,3 +13,5 @@ def init_model(engine):
         mainsession.ensure_indexes(mapper.collection)
 
 # Import your model modules here.
+from tghello.model.task1 import TaskOne
+__all__ = ('TaskOne')

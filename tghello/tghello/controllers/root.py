@@ -1,18 +1,25 @@
 # -*- coding: utf-8 -*-
 """Main Controller"""
 
-from tg import expose, flash, require, url, lurl, request, redirect, tmpl_context
+from tg import expose, flash, require, url, lurl
+from tg import request, redirect, tmpl_context
 from tg.i18n import ugettext as _, lazy_ugettext as l_
+from tg.exceptions import HTTPFound
+from tg import predicates
+from tghello import model
+#from tghello.controllers.secure import SecureController
+#from tgext.admin.mongo import BootstrapTGMongoAdminConfig as TGAdminConfig
+#from tgext.admin.controller import AdminController
 
 from tghello.lib.base import BaseController
 from tghello.controllers.error import ErrorController
-
+from tghello.model.task1 import TaskOne
 __all__ = ['RootController']
 
 
 class RootController(BaseController):
     """
-    The root controller for the tghello application.
+    The root controller for the jeyzth42 application.
 
     All the other controllers and WSGI applications should be mounted on this
     controller. For example::
@@ -24,8 +31,9 @@ class RootController(BaseController):
     must be wrapped around with :class:`tg.controllers.WSGIAppController`.
 
     """
-
-    error = ErrorController()
+#    secc = SecureController()
+#    admin = AdminController(model, None, config_type=TGAdminConfig)
+#    error = ErrorController()
 
     def _before(self, *args, **kw):
         tmpl_context.project_name = "tghello"
@@ -33,20 +41,9 @@ class RootController(BaseController):
     @expose('tghello.templates.index')
     def index(self):
         """Handle the front-page."""
-        return dict(page='index')
+        t1=TaskOne.query.get(name=u'Evgen');
+        
+        return dict(title='This is may first page Jinja.',page='index.jinja',name=t1.name,lastname=t1.lastname,
+           dateofbird=t1.dateofbird,bio=t1.bio,email=t1.email,skype=t1.skype, jabber=t1.jabber,othr=t1.othr)
+        
 
-    @expose('tghello.templates.about')
-    def about(self):
-        """Handle the 'about' page."""
-        return dict(page='about')
-
-    @expose('tghello.templates.environ')
-    def environ(self):
-        """This method showcases TG's access to the wsgi environment."""
-        return dict(page='environ', environment=request.environ)
-
-    @expose('tghello.templates.data')
-    @expose('json')
-    def data(self, **kw):
-        """This method showcases how you can use the same controller for a data page and a display page"""
-        return dict(page='data', params=kw)
