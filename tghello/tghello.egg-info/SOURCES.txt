@@ -42,7 +42,6 @@ tghello/public/images/under_the_hood_blue.png
 tghello/public/javascript/bootstrap.js
 tghello/public/javascript/bootstrap.min.js
 tghello/templates/__init__.py
-tghello/templates/__init__.pyc
 tghello/templates/about.jinja
 tghello/templates/data.jinja
 tghello/templates/environ.jinja
