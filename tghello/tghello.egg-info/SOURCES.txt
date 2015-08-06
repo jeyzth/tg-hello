@@ -59,7 +59,7 @@ tghello/tests/functional/__init__.py
 tghello/tests/functional/test_authentication.py
 tghello/tests/functional/test_root.py
 tghello/tests/models/__init__.py
-tghello/tests/models/test_auth.py
+tghello/tests/models/test_taskone.py
 tghello/websetup/__init__.py
 tghello/websetup/bootstrap.py
 tghello/websetup/schema.py
